@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<a href="resume.php" target="_blank">Resume</a>
+<title>Sakshi Jadhav | Portfolio</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+.edit-btn{
+    padding: 8px 18px;
+    border: none;
+    background: #38bdf8;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.edit-btn:hover{
+    background: #0ea5e9;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: #111827;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transform-box: center;
+    transition-behavior: cover;
+}
+
+.navbar a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #cbd5e1;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #38bdf8;
+}
+
+/* ===== HERO ===== */
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+    background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+}
+
+.hero p {
+    margin: 10px 0 20px;
+    color: #e0f2fe;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: white;
+    color: #1e3a8a;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===== SOCIAL ===== */
+.social {
+    margin-top: 15px;
+}
+
+.social a {
+    font-size: 20px;
+    margin: 0 8px;
+    color: white;
+}
+
+/* ===== ABOUT ===== */
+/* Section background */
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 50px 20px;
+  color: white;
+}
+
+/* Container */
+.about-container {
+  max-width: 700px;
+  text-align: center;
+}
+
+/* Title */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #38bdf8;
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+/* Main text */
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #cbd5e1;
+}
+
+.about-text span {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* Card */
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+/* ===== SKILLS ===== */
+.skills-section {
+    padding: 80px 20px;
+    background: #0b1220;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.add-skill-btn {
+    padding: 12px 25px;
+    border: none;
+    background: #38bdf8;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background: #2563eb;
+}
+
+/* ===== PROJECTS ===== */
+.projects-wrapper {
+    padding: 80px 20px;
+    background: #111827;
+    text-align: center;
+}
+
+.projects-title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #1f2937;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.project-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #38bdf8;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+/* ===== CONTACT ===== */
+
+.contact-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    text-align: center;
+    color: white;
+}
+
+.contact-card {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.section-title {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #38bdf8;
+}
+
+.section-subtitle {
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: rgba(56,189,248,0.15);
+}
+
+.contact-item h3 {
+    margin-bottom: 5px;
+    color: #38bdf8;
+}
+
+.contact-item a,
+.contact-item p {
+    color: #e2e8f0;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #38bdf8;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111827;
+    color: #94a3b8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .navbar{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <h2>Sakshi Jadhav</h2>
+    <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="resume.php">Resume</a>
+
+    <!-- NEW BUTTON -->
+    <button onclick="editPortfolio()" class="edit-btn">
+        ✏ Edit Info
+    </button>
+</nav>
+</header>
+
+<!-- HERO -->
+<script>
+
+// ================= SKILLS =================
+let skills = JSON.parse(localStorage.getItem("skills")) || ["HTML","CSS","JavaScript"];
+
+function displaySkills(){
+
+    let box = document.getElementById("skillsGrid");
+
+    box.innerHTML = "";
+
+    skills.forEach(s=>{
+
+        box.innerHTML += `
+            <div class="skill-card">${s}</div>
+        `;
+    });
+
+    localStorage.setItem("skills", JSON.stringify(skills));
+}
+
+function addSkill(){
+
+    let s = prompt("Enter skill");
+
+    if(s){
+
+        skills.push(s);
+
+        displaySkills();
+    }
+}
+
+// ================= EDIT INFO =================
+function editPortfolio(){
+
+    let name = prompt(
+        "Enter Your Name",
+        localStorage.getItem("name") || "Sakshi"
+    );
+
+    let role = prompt(
+        "Enter Your Role",
+        localStorage.getItem("role") || "Aspiring Web Developer"
+    );
+
+    let email = prompt(
+        "Enter Email",
+        localStorage.getItem("email") || "sakshijadhav6379913@gmail.com"
+    );
+
+    // SAVE
+    localStorage.setItem("name", name);
+    localStorage.setItem("role", role);
+    localStorage.setItem("email", email);
+
+    loadPortfolio();
+}
+
+// ================= LOAD PORTFOLIO =================
+function loadPortfolio(){
+
+    let name = localStorage.getItem("name") || "Sakshi";
+
+    let role = localStorage.getItem("role") || "Aspiring Web Developer";
+
+    let email = localStorage.getItem("email") || "sakshijadhav6379913@gmail.com";
+
+    document.getElementById("portfolioName").innerHTML =
+        `Hi, I'm ${name} 👋`;
+
+    document.getElementById("portfolioRole").innerHTML = role;
+}
+
+// RUN
+displaySkills();
+loadPortfolio();
+
+</script>
+
+<!-- ABOUT -->
+<div id="about" class="about-section">
+  <div class="about-container">
+    <h2 class="section-title">About Me</h2>
+
+    <p class="about-text">
+      I am a <span>Frontend Developer</span> passionate about building
+      beautiful, responsive, and user-friendly websites.
+    </p>
+
+    <div class="about-card">
+      <p>
+        I love turning ideas into real web experiences using HTML, CSS, and JavaScript.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- SKILLS -->
+<div id="skills" class="skills-section">
+    <h2 class="section-title">My Skills</h2>
+    <p class="section-subtitle">Technologies I use</p>
+
+    <button class="add-skill-btn" onclick="addSkill()">Add Skill</button>
+
+    <div class="skills-grid" id="skillsGrid"></div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="projects-wrapper">
+    <h2 class="projects-title">Projects</h2>
+
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Portfolio</h3>
+            <p>My personal website</p>
+            <a class="project-btn" href="#">View</a>
+        </div>
+
+        <div class="project-card">
+            <h3>E-commerce</h3>
+            <p>Shopping UI design</p>
+            <a class="project-btn" href="#">View</a>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="contact-section">
+
+    <div class="contact-card">
+
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">Let’s connect and build something amazing 🚀</p>
+
+        <!-- Email -->
+        <div class="contact-item">
+            <h3>📧 Email</h3>
+            <a href="mailto:sakshijadhav6379913@gmail.com">
+                sakshijadhav6379913@gmail.com
+            </a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="contact-item">
+            <h3>💼 LinkedIn</h3>
+            <a href="https://linkedin.com/in/sakshi-jadhav-094750362" target="_blank">
+                View My LinkedIn Profile
+            </a>
+        </div>
+
+        <!-- GitHub -->
+        <div class="contact-item">
+            <h3>💻 GitHub</h3>
+            <a href="https://github.com/sakshijadhav6379913-lgtm" target="_blank">
+                github.com/sakshi-jadhav
+            </a>
+        </div>
+
+        <!-- Address -->
+        <div class="contact-item">
+            <h3>📍 Address</h3>
+            <p>Sangli, Maharashtra, India</p>
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-item">
+            <h3>📞 Phone</h3>
+            <p>+91 12345 67890</p>
+        </div>
+
+    </div>
+
+</div>
+<!-- FOOTER -->
+<footer>
+    © 2026 Sakshi Jadhav | All Rights Reserved
+</footer>
+
+<!-- SCRIPT -->
+<script>
+let skills = JSON.parse(localStorage.getItem("skills")) || ["HTML","CSS","JavaScript"];
+
+function displaySkills(){
+    let box = document.getElementById("skillsGrid");
+    box.innerHTML = "";
+
+    skills.forEach(s=>{
+        box.innerHTML += `<div class="skill-card">${s}</div>`;
+    });
+
+    localStorage.setItem("skills", JSON.stringify(skills));
+}
+
+function addSkill(){
+    let s = prompt("Enter skill");
+    if(s){
+        skills.push(s);
+        displaySkills();
+    }
+}
+
+displaySkills();
+</script>
+
+</body>
+</html>

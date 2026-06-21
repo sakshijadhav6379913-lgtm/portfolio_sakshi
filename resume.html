@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshi Jadhav - Web Developer </title>
+    <style>
+        /* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.resume-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #red;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Contact links */
+.contact-info {
+    margin-top: 10px;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #0077b6;
+    font-weight: 500;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+section {
+    margin-bottom: 25px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    color: #0077b6;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #0077b6;
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+/* Skills list */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+
+/* Projects */
+.project-item {
+    margin-bottom: 15px;
+}
+
+.project-item h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.project-item p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Education */
+#education p {
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .resume-container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.3rem;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+
+    <h1 id="resumeName">Sakshi Jadhav</h1>
+
+    <p id="resumeRole">
+        Aspiring Web Developer | HTML, CSS, JavaScript
+    </p>
+            <div class="contact-info">
+                <a href="sakshijadhav6379913@gmail.com">sakshijadhav6379913@gmail.com</a> | 
+                <a href="https://github.com" target="_blank">GitHub</a> | 
+                <a href="https://linkedin.com/in/sakshi-jadhav-094750362" target="_blank">LinkedIn</a>
+
+            </div>
+        </header>
+
+        <section id="summary">
+            <h2>Professional Summary</h2>
+            <p>Passionate fresher web developer with a strong foundation in front-end technologies. Eager to apply problem-solving skills and clean coding practices to build user-friendly web applications.</p>
+        </section>
+
+<section id="skills">
+
+    <h2>Technical Skills</h2>
+
+    <ul id="resumeSkills"></ul>
+
+</section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-item">
+                <h3>Personal Portfolio Website</h3>
+                <p>Developed a responsive portfolio using HTML and CSS to showcase web projects. Improved mobile accessibility and loading speed.</p>
+            </div>
+            <div class="project-item">
+                <h3>cloth_store</h3>
+                <a href="index.php"> cloth_store mini project</a>
+                <p>Built a functional landing page with a product grid and contact form using JavaScript for basic interactivity.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>B.tech in Computer Science</strong> | Dbatu University | 2024 - 2028</p>
+        </section>
+    </div>
+   <script>
+
+// ================= LOAD SKILLS =================
+let skills = JSON.parse(localStorage.getItem("skills")) || [];
+
+let resumeSkills = document.getElementById("resumeSkills");
+
+skills.forEach(skill => {
+
+    resumeSkills.innerHTML += `
+        <li>${skill}</li>
+    `;
+});
+
+// ================= LOAD PORTFOLIO INFO =================
+let name = localStorage.getItem("name") || "Sakshi Jadhav";
+
+let role = localStorage.getItem("role") || "Aspiring Web Developer";
+
+document.getElementById("resumeName").innerHTML = name;
+
+document.getElementById("resumeRole").innerHTML = role;
+
+</script>
+</body>
+</html>
